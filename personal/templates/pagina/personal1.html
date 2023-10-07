@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de Personal</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Licencia de Conducir</th>
+                <th>Tipo de Licencia</th>
+                <th>Correo Electrónico</th>
+                <th>DPI</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se mostrarán los registros de personal desde Django -->
+            <tr>
+                <td>Juan</td>
+                <td>Pérez</td>
+                <td>123456789</td>
+                <td>ABC123</td>
+                <td>Tipo A</td>
+                <td>juan@example.com</td>
+                <td>1234 56789 0101</td>
+                <td>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal"
+                        data-target="#editarModal">Editar</button>
+                    <button class="btn btn-sm btn-danger" onclick="eliminarPersonal(1)">Eliminar</button>
+                </td>
+            </tr>
+            <!-- Agrega más filas según los registros de personal -->
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#agregarModal">Agregar</a>
+</div>
+
+<!-- Modal para Agregar Personal -->
+<div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agregar Personal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí coloca el formulario para agregar personal -->
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="licencia">Licencia de Conducir:</label>
+                        <input type="text" class="form-control" id="licencia" name="licencia">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoLicencia">Tipo de Licencia:</label>
+                        <input type="text" class="form-control" id="tipoLicencia" name="tipoLicencia">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="dpi">DPI:</label>
+                        <input type="text" class="form-control" id="dpi" name="dpi">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Editar Personal -->
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Personal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí coloca el formulario para editar personal -->
+                <form>
+                    <div class="form-group">
+                        <label for="nombreEditar">Nombre:</label>
+                        <input type="text" class="form-control" id="nombreEditar" name="nombreEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoEditar">Apellido:</label>
+                        <input type="text" class="form-control" id="apellidoEditar" name="apellidoEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefonoEditar">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefonoEditar" name="telefonoEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="licenciaEditar">Licencia de Conducir:</label>
+                        <input type="text" class="form-control" id="licenciaEditar" name="licenciaEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoLicenciaEditar">Tipo de Licencia:</label>
+                        <input type="text" class="form-control" id="tipoLicenciaEditar" name="tipoLicenciaEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailEditar">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="emailEditar" name="emailEditar">
+                    </div>
+                    <div class="form-group">
+                        <label for="dpiEditar">DPI:</label>
+                        <input type="text" class="form-control" id="dpiEditar" name="dpiEditar">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alerta de Éxito al Eliminar -->
+<div class="alert alert-success alert-dismissible fade show" role="alert" id="eliminarAlerta" style="display: none;">
+    <strong>Éxito:</strong> Trabajador eliminado correctamente.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<script>
+    function eliminarPersonal(id) {
+        if (confirm("¿Estás seguro de que deseas eliminar a este trabajador?")) {
+            // Aquí debes implementar la lógica de eliminación, por ejemplo, una llamada a Django.
+            // Luego, mostrar la alerta de éxito y ocultar la fila de la tabla.
+            document.getElementById("eliminarAlerta").style.display = "block";
+            setTimeout(function () {
+                document.getElementById("eliminarAlerta").style.display = "none";
+            }, 3000);
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Asignación de Horarios de Buses</h1>
+    <form method="POST" action="{}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="conductor">Conductor:</label>
+            <input type="text" class="form-control" id="conductor" name="conductor"
+                placeholder="Escribe el nombre del conductor">
+        </div>
+        <div class="form-group">
+            <label for="ayudante">Ayudante:</label>
+            <input type="text" class="form-control" id="ayudante" name="ayudante"
+                placeholder="Escribe el nombre del ayudante">
+        </div>
+        <div class="form-group">
+            <label for="bus">Número de Bus:</label>
+            <input type="number" class="form-control" id="bus" name="bus">
+        </div>
+        <div class="form-group">
+            <label for="foto">Fotografía del Bus:</label>
+            <input type="file" class="form-control-file" id="foto" name="foto">
+        </div>
+        <div class="form-group">
+            <label for="color">Color del Bus:</label>
+            <input type="text" class="form-control" id="color" name="color">
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca del Bus:</label>
+            <input type="text" class="form-control" id="marca" name="marca">
+        </div>
+        <div class="form-group">
+            <label for="placas">Placas del Bus:</label>
+            <input type="text" class="form-control" id="placas" name="placas">
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha de Asignación:</label>
+            <input type="date" class="form-control" id="fecha" name="fecha">
+        </div>
+        <div class="form-group">
+            <label for="horario">Horario de Salida:</label>
+            <select class="form-control" id="horario" name="horario">
+                <option value="08:00 AM - 10:00 AM">08:00 AM - 10:00 AM</option>
+                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                <!-- Agrega más opciones de horarios -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="observacion">Observación:</label>
+            <textarea class="form-control" id="observacion" name="observacion" rows="4"
+                placeholder="Escribe alguna observación"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Asignar Horario</button>
+    </form>
+</div>
+{% endblock %}

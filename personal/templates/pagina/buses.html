@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>CRUD de Buses</h2>
+
+    <!-- Botón para mostrar el formulario de agregar -->
+    <button class="btn btn-success" data-toggle="modal" data-target="#agregarModal">Agregar Bus</button>
+
+    <!-- Tabla de buses -->
+    <table class="table table-responsive mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Línea</th>
+                <th>Número de Buses</th>
+                <th>Turno</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Llenar la tabla con registros -->
+            <!-- Por ahora, este código es estático, pero aquí se listarían los buses desde tu base de datos -->
+            <tr>
+                <td>1</td>
+                <td>Mercedes-Benz</td>
+                <td>Sprinter</td>
+                <td>Transporte Express</td>
+                <td>123</td>
+                <td>Mañana</td>
+                <td>
+                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#editarModal">Editar</button>
+                    <button class="btn btn-sm btn-danger">Eliminar</button>
+                </td>
+            </tr>
+            <!-- Fin de registros -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal para agregar bus -->
+<div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <!-- ... Código del modal de agregar aquí ... -->
+</div>
+
+<!-- Modal para editar bus (similar al modal de agregar) -->
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <!-- ... Código del modal de editar aquí ... -->
+</div>
+{% endblock %}
