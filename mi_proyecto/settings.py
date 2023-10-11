@@ -76,12 +76,7 @@ WSGI_APPLICATION = "mi_proyecto.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "busesdb",
-        "USER": "root",
-        "PASSWORD": "admin",
-        "HOST": "localhost",  # O la dirección de tu servidor MySQL
-        "PORT": "",  # Puerto de MySQL (puedes dejarlo en blanco para usar el valor predeterminado)
+       # Puerto de PostgreSQL (generalmente 5432)
     }
 }
 
